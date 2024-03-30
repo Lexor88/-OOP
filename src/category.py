@@ -9,7 +9,7 @@ class Category:
     def __init__(self, name: str, description: str, products: list[Product]):
         self.name = name
         self.description = description
-        self.__products = products
+        self.products = products
 
         Category.category_count += 1
         Category.products_count += len(products)
