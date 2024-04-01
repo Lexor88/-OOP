@@ -21,6 +21,6 @@ def test_init(for_category):
                                         "коммуникации, но и "
                                         "получение дополнительных функций для "
                                         "удобства жизни")
-    assert for_category.products[0].name == "Samsung Galaxy C23 Ultra"
+    assert for_category.products.startswith("Samsung Galaxy C23 Ultra") is True
     assert Category.category_count == 1
     assert Category.products_count == 2
