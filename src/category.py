@@ -12,7 +12,7 @@ class Category:
         self.__products = products
 
         Category.category_count += 1
-        Category.products_count += len(products)
+        Category.products_count += len(set(products))
 
     def add_product(self, new_product):
         self.__products.append(new_product)
