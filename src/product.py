@@ -24,3 +24,16 @@ class Product:
             self.__price = new_price
         else:
             print("Заданная цена не соответствует условиям")
+
+    def __len__(self):
+        return self.quantity
+
+    def sum_price(self):
+        return self.__price * self.quantity
+
+    def __add__(self, other):
+        return self.sum_price() + other.sum_price()
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity}"
+

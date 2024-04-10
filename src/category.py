@@ -21,6 +21,14 @@ class Category:
     def products(self):
         list_products = ''
         for product in self.__products:
-            product_for_append = f"{product.name}, {product.price} руб. Остаток: {product.quantity}\n"
-            list_products += product_for_append
+            list_products += str(product)
         return list_products
+
+    def summary(self):
+        prod_gen_quant = 0
+        for product in self.__products:
+            prod_gen_quant += len(product)
+        return prod_gen_quant
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {self.summary()}"
