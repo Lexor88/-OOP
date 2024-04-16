@@ -29,7 +29,7 @@ class Product:
         return self.quantity
 
     def sum_price(self):
-        return self.__price * self.quantity
+        return self.price * self.quantity
 
     def __add__(self, other):
         return self.sum_price() + other.sum_price()

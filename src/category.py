@@ -24,11 +24,11 @@ class Category:
             list_products += str(product)
         return list_products
 
-    def summary(self):
+    def __len__(self):
         prod_gen_quant = 0
         for product in self.__products:
             prod_gen_quant += len(product)
         return prod_gen_quant
 
     def __str__(self):
-        return f"{self.name}, количество продуктов: {self.summary()}"
+        return f"{self.name}, количество продуктов: {len(self)}"
