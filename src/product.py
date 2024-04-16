@@ -32,7 +32,8 @@ class Product:
         return self.price * self.quantity
 
     def __add__(self, other):
-        return self.sum_price() + other.sum_price()
+        if isinstance(other, Product):
+            return self.sum_price() + other.sum_price()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity}"
