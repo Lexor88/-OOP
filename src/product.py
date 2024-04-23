@@ -34,6 +34,8 @@ class Product:
     def __add__(self, other):
         if isinstance(other, Product):
             return self.sum_price() + other.sum_price()
+        else:
+            print("Допустимо сложение только с ЭК Продукт или дочерними по отношению к нему классами")
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity}"
