@@ -7,6 +7,9 @@ class Category:
     products_count = 0
 
     def __init__(self, name: str, description: str, products: list[Product]):
+        for product in products:
+            if not product.quantity:
+                raise ValueError('Продукт с нулевым количеством не может быть добавлен')
         self.name = name
         self.description = description
         self.__products = products
@@ -16,9 +19,20 @@ class Category:
 
     def add_product(self, new_product):
         if isinstance(new_product, Product):
+            if not new_product.quantity:
+                raise ValueError('Продукт с нулевым количеством не может быть добавлен')
             self.__products.append(new_product)
         else:
-            print("Могут быть добавлены только экземпляры класса Продукт или экземпляры дочерних классов")
+            raise TypeError("Могут быть добавлены только экземпляры класса Продукт или экземпляры дочерних классов")
+
+    def avg_price(self):
+        try:
+            summ = 0
+            for prod in self.__products:
+                summ += prod.price
+            return summ/len(self.__products)
+        except ZeroDivisionError:
+            return 0
 
     @property
     def products(self):
