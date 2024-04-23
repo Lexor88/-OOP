@@ -1,10 +1,16 @@
-class Product:
+from src.mixinlog import MixinLog
+from src.patternproduct import PatternProduct
+
+
+class Product(PatternProduct, MixinLog):
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+        if type(self) is Product:
+            self.print_ex()
 
     @classmethod
     def from_dict(cls, dict_with_prod):
